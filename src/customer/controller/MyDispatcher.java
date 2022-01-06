@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import customer.controller.notice.NoticeController;
+
 public class MyDispatcher extends HttpServlet{
 	
 	@Override
@@ -22,20 +24,20 @@ public class MyDispatcher extends HttpServlet{
 		System.out.println("conPath: "+conPath); // properties - Web Project Settings - context root 값 
 		System.out.println("com: "+com); // 주소줄을 간결하게 표현하기 위해 conPath를 자른 것
 		
-		
+		Controller controller=null;
 		
 		// NoticeDetailController controller1=new NoticeDetailController();
 		// NoticeEditController controller2=new NoticeEditController();
 		
 		// 인터페이스 타입으로 통일시킴 (Controller 타입)
-		/*try {
-			if (com.equals("/customer/noticeDetail.do")) {
-
+		try {
+			if (com.equals("/customer/notice.do")) {
+				controller=new NoticeController();
 			}
 			
 			controller.execute(request,response);
 		} catch (Exception e) {
 			
-		}*/
+		}
 	}
 }
